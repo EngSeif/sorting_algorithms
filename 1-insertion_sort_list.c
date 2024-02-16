@@ -23,16 +23,16 @@ void insertion_sort_list(listint_t **list)
 				current->next->prev = back;
 			if (back->prev != NULL)
 				back->prev->next = current;
-			/* 
-			current->prev = back->prev;
-			back->next = current->next;
-			current->next = back;
-			back->prev = current;
+			/*
+			* current->prev = back->prev;
+			* back->next = current->next;
+			* current->next = back;
+			* back->prev = current;
 			*/
 			back->next = current->next;
-            current->prev = back->prev;
-            current->next = back;
-            back->prev = current;
+			current->prev = back->prev;
+			current->next = back;
+			back->prev = current;
 
 			if (current->prev == NULL)
 				*list = current;
