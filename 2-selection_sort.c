@@ -7,26 +7,24 @@
  * @size: Number of elements in @array
  */
 
-void selection_sort(int *array, size_t size);
+void selection_sort(int *array, size_t size)
 {
-	size_t repeat, i;
-	int is_Swaped, tmp;
+    size_t i, j, min_idx;
+    int tmp;
 
-	for (repeat = 0; repeat < size; repeat++)
-	{
-		is_Swaped = 0;
-		for (i = 0; i < size - 1; i++)
-		{
-			if (array[i] > array[i + 1])
-			{
-				tmp = array[i + 1];
-				array[i + 1] = array[i];
-				array[i] = tmp;
-				print_array(array, size);
-				is_Swaped = 1;
-			}
-		}
-		if (is_Swaped == 0)
-			break;
-	}
+    for (i = 0; i < size - 1; i++)
+    {
+        min_idx = i;
+        for (j = i + 1; j < size; j++)
+        {
+            if (array[min_idx] > array[j])
+                min_idx = j;
+        }
+        tmp = array[i];
+        array[i] = array[min_idx];
+        array[min_idx] = tmp;
+
+        print_array(array, size);
+    }
+    
 }

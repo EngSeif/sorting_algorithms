@@ -19,20 +19,16 @@ void insertion_sort_list(listint_t **list)
 		back = current->prev;
 		while (back != NULL && back->n > current->n)
 		{
-			if (current->next != NULL)
-				current->next->prev = back;
+			current->prev = back->prev;
 			if (back->prev != NULL)
 				back->prev->next = current;
-			/*
-			* current->prev = back->prev;
-			* back->next = current->next;
-			* current->next = back;
-			* back->prev = current;
-			*/
-			back->next = current->next;
-			current->prev = back->prev;
-			current->next = back;
+
 			back->prev = current;
+			back->next = current->next;
+			if (current->next != NULL)
+				current->next->prev = back;
+
+			current->next = back;
 
 			if (current->prev == NULL)
 				*list = current;
