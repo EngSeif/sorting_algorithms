@@ -63,6 +63,38 @@ void test2()
     print_list(list);
 }
 
+void test3()
+{
+    listint_t *list;
+    int array[] = {1, 2, 3, 4, 5};
+    size_t n = sizeof(array) / sizeof(array[0]);
+
+    list = create_listint(array, n);
+    if (!list)
+        return;
+    print_list(list);
+    printf("\n");
+    insertion_sort_list(&list);
+    printf("\n");
+    print_list(list);
+}
+
+void test4()
+{
+    listint_t *list;
+    int array[] = {5, 4, 3, 2, 1};
+    size_t n = sizeof(array) / sizeof(array[0]);
+
+    list = create_listint(array, n);
+    if (!list)
+        return;
+    print_list(list);
+    printf("\n");
+    insertion_sort_list(&list);
+    printf("\n");
+    print_list(list);
+}
+
 /**
  * main - Entry point
  *
@@ -73,5 +105,9 @@ int main(void)
     test1();
     printf("\n\n-----------------------------------\n\n");
     test2();
+    printf("\n\n-----------------------------------\n\n");
+    test3();
+    printf("\n\n-----------------------------------\n\n");
+    test4();
     return (0);
 }
