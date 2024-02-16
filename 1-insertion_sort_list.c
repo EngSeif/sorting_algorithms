@@ -16,6 +16,9 @@ void insertion_sort_list(listint_t **list)
 
 	while (current != NULL)
 	{
+		back = current->prev;
+		while (back != NULL && back->n > current->n)
+		{
 			current->prev = back->prev;
 			if (back->prev != NULL)
 				back->prev->next = current;
@@ -30,7 +33,7 @@ void insertion_sort_list(listint_t **list)
 			if (current->prev == NULL)
 				*list = current;
 			else
-				current->prev->next = current; // Update the next pointer of the node before current
+				current->prev->next = current;
 
 			print_list(*list);
 			back = current->prev;
