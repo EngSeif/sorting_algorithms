@@ -31,12 +31,7 @@ listint_t *create_listint(const int *array, size_t size)
     return (list);
 }
 
-/**
- * main - Entry point
- *
- * Return: Always 0
- */
-int main(void)
+void test1()
 {
     listint_t *list;
     int array[] = {19, 48, 99, 71, 13, 52, 96, 73, 86, 7};
@@ -44,11 +39,39 @@ int main(void)
 
     list = create_listint(array, n);
     if (!list)
-        return (1);
+        return;
     print_list(list);
     printf("\n");
     insertion_sort_list(&list);
     printf("\n");
     print_list(list);
+}
+
+void test2()
+{
+    listint_t *list;
+    int array[] = {};
+    size_t n = sizeof(array) / sizeof(array[0]);
+
+    list = create_listint(array, n);
+    if (!list)
+        return;
+    print_list(list);
+    printf("\n");
+    insertion_sort_list(&list);
+    printf("\n");
+    print_list(list);
+}
+
+/**
+ * main - Entry point
+ *
+ * Return: Always 0
+ */
+int main(void)
+{
+    test1();
+    printf("\n\n-----------------------------------\n\n");
+    test2();
     return (0);
 }
