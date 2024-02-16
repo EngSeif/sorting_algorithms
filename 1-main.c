@@ -50,7 +50,7 @@ void test1()
 void test2()
 {
     listint_t *list;
-    int array[] = {};
+    int array[] = {19};
     size_t n = sizeof(array) / sizeof(array[0]);
 
     list = create_listint(array, n);
