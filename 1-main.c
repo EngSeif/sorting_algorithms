@@ -94,6 +94,10 @@ void test4()
     printf("\n");
     print_list(list);
 }
+void test5()
+{
+    insertion_sort_list(NULL);
+}
 
 /**
  * main - Entry point
@@ -109,5 +113,7 @@ int main(void)
     test3();
     printf("\n\n-----------------------------------\n\n");
     test4();
+    printf("\n\n-----------------------------------\n\n");
+    test5();
     return (0);
 }
