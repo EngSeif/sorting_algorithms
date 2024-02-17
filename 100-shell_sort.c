@@ -1,23 +1,6 @@
 #include "sort.h"
 
 /**
- * Swap - Swap Two Elements
- *
- * @a: 1st Element
- * @b: 2nd Element
- * Return: None
- */
-void Swap(int *a, int *b)
-{
-	if (*a != *b)
-	{
-		*a = *a + *b;
-		*b = *a - *b;
-		*a = *a - *b;
-	}
-}
-
-/**
  * shell_sort - Arrange Array (Shell Sort Algorthim)
  *
  * @array: The array to Operated
@@ -44,12 +27,11 @@ void shell_sort(int *array, size_t size)
 
 			while (j >= gap && array[j - gap] > key)
 			{
-				Swap(&array[j - 1], &array[j]);
+				array[j] = array[j - gap];
 				j = j - gap;
 			}
 		}
-
-		gap = (gap - 1) / 3;
 		print_array(array, size);
+		gap = (gap - 1) / 3;
 	}
 }
