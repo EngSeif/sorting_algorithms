@@ -25,11 +25,12 @@ void shell_sort(int *array, size_t size)
 			key = array[i];
 			j = i;
 
-			while (j >= gap && array[j - gap] > key)
+			while (j > gap - 1 && array[j - gap] > key)
 			{
 				array[j] = array[j - gap];
 				j = j - gap;
 			}
+			array[j] = key;
 		}
 		print_array(array, size);
 		gap = (gap - 1) / 3;
