@@ -5,6 +5,8 @@
  *
  * @a: 1st Element
  * @b: 2nd Element
+ * @array: The array to Operated
+ * @size: Number of elements in @array
  * Return: None
  */
 void Swap(int *a, int *b, int *array, size_t size)
