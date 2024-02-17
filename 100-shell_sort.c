@@ -1,6 +1,20 @@
 #include "sort.h"
 
 /**
+ * Swap - Swap Two Elements
+ *
+ * @a: 1st Element
+ * @b: 2nd Element
+ * Return: None
+ */
+void Swap(int *a, int *b)
+{
+	*a = *a + *b;
+	*b = *a - *b;
+	*a = *a - *b;
+}
+
+/**
  * shell_sort - Arrange Array (Shell Sort Algorthim)
  *
  * @array: The array to Operated
