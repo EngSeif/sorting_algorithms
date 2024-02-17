@@ -1,6 +1,23 @@
 #include "sort.h"
 
 /**
+ * Swap - Swap Two Elements
+ *
+ * @a: 1st Element
+ * @b: 2nd Element
+ * Return: None
+ */
+void Swap(int *a, int *b, int *array, size_t size)
+{
+	if (*a != *b)
+	{
+		*a = *a + *b;
+		*b = *a - *b;
+		*a = *a - *b;
+		print_array(array, size);
+	}
+}
+/**
  * partition - Make partition (Quick Sort Algorthim)
  *
  * @array: The array to Operated
@@ -10,29 +27,21 @@
  * Return: Index
  */
 
-int partition(int *array, int low, int high, size_t size)
+size_t partition(int *array, int low, int high, size_t size)
 {
 	int pivot = array[high];
-	int i = low - 1;
-	int j, tmp;
+	int i = low;
+	int j;
 
 	for (j = low; j <= high - 1; j++)
 	{
 		if (array[j] < pivot)
 		{
-			i += 1;
-			tmp = array[j];
-			array[j] = array[i];
-			array[i] = tmp;
-			print_array(array, size);
+			Swap(&array[i], &array[j], array, size);
+			i++;
 		}
 	}
-	i += 1;
-	tmp = array[high];
-	array[high] = array[i];
-	array[i] = tmp;
-	print_array(array, size);
-
+	Swap(&array[i], &array[high], array, size);
 	return (i);
 }
 
@@ -49,7 +58,7 @@ void QS_Recursive(int *array, int low, int high, size_t size)
 {
 	if (low < high)
 	{
-		int Pv_indx;
+		size_t Pv_indx;
 
 		Pv_indx = partition(array, low, high, size);
 		QS_Recursive(array, low, Pv_indx - 1, size);
@@ -66,5 +75,7 @@ void QS_Recursive(int *array, int low, int high, size_t size)
 
 void quick_sort(int *array, size_t size)
 {
+	if (!array || !size)
+		return;
 	QS_Recursive(array, 0, size - 1, size);
 }
