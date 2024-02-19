@@ -1,4 +1,10 @@
 {
     "search.sortOrder": "default",
-    "explorer.sortOrder": "type"
+    "explorer.sortOrder": "type",
+    "files.associations": {
+        "array": "c",
+        "deque": "c",
+        "vector": "c",
+        "string_view": "c"
+    }
 }
