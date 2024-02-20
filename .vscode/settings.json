@@ -6,6 +6,8 @@
         "deque": "c",
         "vector": "c",
         "string_view": "c",
-        "algorithm": "c"
+        "algorithm": "c",
+        "initializer_list": "c",
+        "utility": "c"
     }
 }
